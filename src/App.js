@@ -17,7 +17,7 @@ class App extends Component {
         //"https://captionthat.herokuapp.com",
         this.state = {
             alias: "",
-            endpoint: "http://localhost:3001",
+            endpoint: "https://captionthat.herokuapp.com",
             roundLimit: 10,
             timeLimit: 30,
             timer: 30,
