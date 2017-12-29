@@ -2,7 +2,7 @@
 06908F - green
 0CA4A5 - teal
  395E66 - dark teal
-  FCFFFA - near white*/
+  FCFFFA - near #FCFFFA*/
 body {
     background: #395e66;
 }
@@ -20,7 +20,22 @@ body, * {
     top: 25px;
     left: 0px;
     color: orange;
-    font-size: 36pt;
+    font-size: 30pt;
+    height: 100px;
+    padding: 0 0 0 25px;
+    width: 100%;
+    text-align: left;
+    text-shadow: 2px 2px #395E66;
+    z-index: 3;
+}
+
+.gameroomName {
+    font-family: 'Courgette', cursive;
+    position: absolute;
+    top: 75px;
+    left: 0px;
+    color: orange;
+    font-size: 15pt;
     height: 100px;
     padding: 0 0 0 25px;
     width: 100%;
@@ -31,9 +46,12 @@ body, * {
 
 .App {
     text-align: center;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .modal {
@@ -67,7 +85,7 @@ body, * {
     background-color: orange;
     border: none;
     border-radius: 5px;
-    font-size: xx-large;
+    font-size: x-large;
     cursor: pointer;
 }
 
@@ -78,25 +96,25 @@ body, * {
     background-color: #395E66;
     border: none;
     border-radius: 5px;
-    color: white;
+    color: #FCFFFA;
     margin-right: 5px;
-    font-size: xx-large;
+    font-size: x-large;
 }
 
 .alias::-webkit-input-placeholder {
-    color: white !important;
+    color: #FCFFFA !important;
 }
 
 .alias:-moz-placeholder { /* Firefox 18- */
-    color: white !important;
+    color: #FCFFFA !important;
 }
 
 .alias::-moz-placeholder { /* Firefox 19+ */
-    color: white !important;
+    color: #FCFFFA !important;
 }
 
 .alias:-ms-input-placeholder {
-    color: white !important;
+    color: #FCFFFA !important;
 }
 
 .warning {
@@ -110,12 +128,12 @@ body, * {
     top: 0;
     right: 0;
     padding: 15px 25px;
-    font-size: xx-large;
+    font-size: x-large;
     color: #FCFFFA;
 }
 
 .timer {
-    font-size: xx-large;
+    font-size: x-large;
     font-weight: bolder;
     position: absolute;
     text-shadow: 2px 2px #395e66;
@@ -123,26 +141,6 @@ body, * {
     right: 0;
     padding: 50px 25px;
     color: orange;
-}
-
-.imageViewer {
-    height: 400px;
-    width: 60%;
-    background-size: contain;
-    background-position: left;
-    background-repeat: no-repeat;
-    box-shadow: 5px 5px 15px 0px black;
-    background-color: #0CA4A5;
-    border-radius: 0px 15px 15px 0px;
-    border: 5px solid #0CA4A5;
-}
-
-.scoreboard {
-    height: 400px;
-    width: 33%;
-    background: #0CA4A5;
-    box-shadow: 5px 5px 15px 0px black;
-    border-radius: 15px 0px 0px 15px;
 }
 
 .centerContent {
@@ -156,16 +154,55 @@ body, * {
     position: absolute;
     justify-content: space-between;
     top: 125px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.imageViewer {
+    height: 400px;
+    width: 700px;
+    max-width: 45%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-box-shadow: 5px 5px 15px 0px black;
+    box-shadow: 5px 5px 15px 0px black;
+    background-color: #0CA4A5;
+    border-radius: 0px 15px 15px 0px;
+    border: 5px solid #0CA4A5;
+}
+
+.scoreboard {
+    height: 400px;
+    width: 300px;
+    max-width: 30%;
+    background: #0CA4A5;
+    box-shadow: 5px 5px 15px 0px black;
+    border-radius: 15px 0px 0px 15px;
 }
 
 .scoreboard li {
-    font-size: x-large;
+    font-size: large;
 }
 
 .scoreboardTitle {
-    font-size: xx-large;
+    font-size: x-large;
     color: #FCFFFA;
     padding: 0px 15px;
+}
+
+.cardsTitle {
+    color: #395e66;
+    font-size: x-large;
+    width: 10000px;
+    height: 100px;
+    max-width: 35%;
+    background-color: orange;
+    text-align: center;
+    line-height: 100px;
+    box-shadow: 5px 5px 15px 0px black;
+    border: 1px solid #0CA4A5;
 }
 
 .cards {
@@ -181,7 +218,7 @@ body, * {
     -ms-flex-pack: justify;
     justify-content: space-around;
     flex-wrap: wrap;
-    top: 550px;
+    top: 580px;
     padding: 0px 10px;
 }
 
@@ -192,7 +229,7 @@ body, * {
     box-shadow: 5px 5px 15px 0px black;
     border-radius: 15px 15px 15px 15px;
     margin-bottom: 10px;
-    color: white;
+    color: #FCFFFA;
     font-size: large;
     cursor: pointer;
 }
@@ -202,9 +239,62 @@ body, * {
     color: #395e66;
 }
 
-.cardsTitle {
-    font-size: xx-large;
+.gameroomsWrapper {
     position: absolute;
-    top: 525px;
-
+    bottom: 0;
+    width: 100%;
 }
+
+.gamerooms {
+    /* position: absolute; */
+    width: 100%;
+    /* height: 500px; */
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: left;
+    position: absolute;
+    -ms-flex-pack: justify;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    position: relative;
+    background-color: orange;
+}
+
+.gameroom {
+    /*width: 60%;*/
+    padding: 10px;
+    background-color: orange;
+    border-radius: 15px 15px 15px 15px;
+    margin-bottom: 10px;
+    color: #395e66;
+    font-size: large;
+    cursor: pointer;
+    margin: 5px 0px;
+}
+
+.gameroom:hover {
+    background-color: #395e66;
+    color: orange;
+}
+
+.gameroomsTitle {
+    position: absolute;
+    left: 25px;
+    top: -50px;
+    height: 50px;
+    background-color: #395e66;
+    line-height: 25px;
+    padding: 15px;
+    color: orange;
+    border-radius: 15px 15px 0px 0px;
+    font-size: large;
+}
+
+.active{
+    background-color: #395e66;
+    color: orange;
+}
+
+

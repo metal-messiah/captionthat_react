@@ -6,9 +6,12 @@ import React, {Component} from 'react';
 class Header extends Component {
 
     render() {
+        let displayRoomName = this.props.currentGameroom ? "gameroomName" : "hidden";
         return (
-            <div className="logo">CaptionThat</div>
-
+            <div>
+                <div className="logo">CaptionThat</div>
+                <div className={displayRoomName}>{this.props.currentGameroom}</div>
+            </div>
         )
     }
 }
