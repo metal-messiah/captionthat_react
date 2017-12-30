@@ -66,7 +66,7 @@ class App extends Component {
             const socket = socketIOClient(`${endpoint}/${gameroom}`);
             this.setState({socket: socket});
             socket.on("data", data => {
-                console.log(data);
+                //console.log(data);
                 this.setState({
                     roundLimit: data.roundLimit,
                     timeLimit: data.timeLimit,
@@ -182,21 +182,24 @@ class App extends Component {
         else {
             roundMsg = "Waiting For 1 More Player";
         }
+        console.log(this.state.alias)
         let aliasIndex = this.state.users.findIndex((user) => user.alias === this.state.alias);
         let me;
+
         if (aliasIndex != -1) {
             me = this.state.users[aliasIndex];
         }
         else {
             me = false;
         }
+        console.log(me)
         let canSubmit = me ? me.canSubmit : false;
         let cards = me ? me.cards : [];
         let canVote = me ? me.canVote : false;
         let submissions = this.state.currentCaptions || [];
         let cardTitle = this.state.roundType == "answer" ? "Submit a Caption" : "Vote For Your Favorite";
         //let currentCaption = me ? me.currentCaption : "";
-        console.log(this.state.endpoint)
+        //console.log(this.state.endpoint)
         return (
             <div className="App">
                 <SignIn currentGameroom={this.state.currentGameroom} handleGameroom={this.handleGameroom}
