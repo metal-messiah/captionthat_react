@@ -41,7 +41,7 @@ class SignIn extends Component {
         }
         else {
             buttonText = "Create Game";
-            placeholderText = "Enter Gameroom Name";
+            placeholderText = "New Gameroom Name";
             showGamerooms = "gamerooms"
         }
 
@@ -61,7 +61,7 @@ class SignIn extends Component {
                     <button type="submit" className="submitAlias"> {buttonText}</button>
                     <div className="help">Make a game, or join an existing one. Create a temporary username and join the fun!
                             A random picture will be shown, and you will be given four random caption cards. You may
-                            pick one card each round to best represent the mood of the picture. At the end of the round.
+                            pick one card each round to best represent the mood of the picture. At the end of the round,
                             each player will get to vote for their favorite. The player with the most points after 10
                             rounds wins the game. Have fun!
                     </div>
