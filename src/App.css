@@ -134,12 +134,12 @@ body, * {
     color: #FCFFFA !important;
 }
 
-p
-.hel {
-    width: 100%;
+.help {
+    width: 45%;
     font-size: small;
     padding: 15px;
     color: white;
+    margin: 0 auto;
 }
 
 .round {
