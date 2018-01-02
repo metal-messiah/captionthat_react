@@ -20,8 +20,6 @@ class SignIn extends Component {
     }
 
 
-
-
     componentWillReceiveProps() {
         //console.log(this.props.gamerooms);
     }
@@ -48,7 +46,6 @@ class SignIn extends Component {
         }
 
 
-
         //console.log(this.props.gamerooms)
 
         return (
@@ -62,7 +59,13 @@ class SignIn extends Component {
                     <input className="alias" placeholder={placeholderText} value={this.state.alias}
                            onChange={this.handleChange} required></input>
                     <button type="submit" className="submitAlias"> {buttonText}</button>
-                    <div className="warning">{this.props.signinMsg}</div>
+                    <div className="help">How to Play
+                        <hr>Make a game, or join an existing one. Create a temporary username and join the fun!
+                            A random picture will be shown, and you will be given four random caption cards. You may
+                            pick one card each round to best represent the mood of the picture. At the end of the round.
+                            each player will get to vote for their favorite. The player with the most points after 10
+                            rounds wins the game. Have fun!
+                    </div>
                 </form>
                 <div className="gameroomsWrapper">
                     <div className="gamerooms">
@@ -77,8 +80,8 @@ class SignIn extends Component {
                     </div>
                 </div>
             </div>
-        )
+    )
     }
-}
+    }
 
-export default SignIn;
+    export default SignIn;
