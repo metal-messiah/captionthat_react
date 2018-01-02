@@ -23,7 +23,8 @@ class Scoreboard extends Component {
                 <div className="scoreboardTitle">Scoreboard</div>
                 <ol>
                     {scores.map((score, i) => {
-                        return <li key={i}>{score.alias} - {score.score}</li>
+                        let avatarURL = `https://api.adorable.io/avatars/40/${score.alias}`;
+                        return <li key={i}><img src={avatarURL} className="avatar"/>{score.alias} - {score.score}</li>;
                     })}
                 </ol>
             </div>

@@ -13,7 +13,7 @@ import Cards from './components/Cards';
 import Submissions from './components/Submissions';
 import HelpText from './components/HelpText';
 
-let debug = false;
+let debug = true;
 
 
 let endpoint;
@@ -50,7 +50,8 @@ class App extends Component {
             signinMsg: "",
             socket: null,
             gamerooms: [],
-            currentGameroom: ""
+            currentGameroom: "",
+            currentGameroomUsers: []
         };
 
         this.handleGameroom = this.handleGameroom.bind(this);
@@ -62,7 +63,8 @@ class App extends Component {
         e.preventDefault()
         let name = data.replace(/\W/g, '').toLowerCase();
         if (gameroom) {
-            //join the game
+            //join the game with a player alias
+
             const socket = socketIOClient(`${endpoint}/${gameroom}`);
             this.setState({socket: socket});
             socket.on("data", data => {
@@ -77,7 +79,8 @@ class App extends Component {
                     currentImage: data.currentImage,
                     users: data.users,
                     isRunning: data.isRunning,
-                    currentCaptions: data.currentCaptions
+                    currentCaptions: data.currentCaptions,
+                    currentGameroomUsers: data.users.map(user=>user.alias)
                 })
             });
 
@@ -85,7 +88,15 @@ class App extends Component {
 
             socket.on("alias", (data) => {
                 console.log(data);
+
+
                 if (data.success) {
+                    axios.get(`${this.state.endpoint}/api/game/${gameroom}`).then(response => {
+                        let users = response.data.users;
+                        this.setState({
+                            currentGameroomUsers: users
+                        })
+                    })
                     this.setState({
                         showImage: true,
                         showTimer: true,
@@ -107,6 +118,7 @@ class App extends Component {
                         signinMsg: "Alias is already taken",
                         alias: data.alias
                     })
+                    ToastStore.error("Alias is already taken", 5000);
                 }
             })
 
@@ -115,7 +127,11 @@ class App extends Component {
             })
 
             socket.on("end", (data) => {
-                window.location.reload();
+                ToastStore.error("Game has ended", 5000);
+                setTimeout(function () {
+                    window.location.reload(true);
+                }, 5000)
+
             })
 
 
@@ -131,7 +147,7 @@ class App extends Component {
                         })
                     }
                     else {
-                        ToastStore.warning(response.data.msg, 5000);
+                        ToastStore.error(response.data.msg.replace(/\r?\n|\r/g, " "), 5000);
                     }
 
 
@@ -140,9 +156,15 @@ class App extends Component {
     }
 
     handleExistingGameroom(e) {
-        this.setState({
-            currentGameroom: e.target.innerHTML
+        let currentGameroom = e.target.innerHTML;
+        axios.get(`${this.state.endpoint}/api/game/${currentGameroom}`).then(response => {
+            let users = response.data.users;
+            this.setState({
+                currentGameroom: currentGameroom,
+                currentGameroomUsers: users
+            })
         })
+
     }
 
     getExistingGames() {
@@ -192,7 +214,7 @@ class App extends Component {
         else {
             me = false;
         }
-        console.log(me)
+        console.log(me);
         let canSubmit = me ? me.canSubmit : false;
         let cards = me ? me.cards : [];
         let canVote = me ? me.canVote : false;
@@ -207,7 +229,8 @@ class App extends Component {
                         gamerooms={this.state.gamerooms} url={window.location.href}
                         show={this.state.showSignin}
                         msg={this.state.signinMsg} socket={this.state.socket}/>
-                <Header currentGameroom={this.state.currentGameroom}/>
+                <Header currentGameroom={this.state.currentGameroom}
+                        currentGameroomUsers={this.state.currentGameroomUsers}/>
                 <Round round={roundMsg}/>
                 <Timer display={this.state.isRunning} timer={this.state.timer}></Timer>
                 <div className="centerContent">
