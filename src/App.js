@@ -13,7 +13,7 @@ import Cards from './components/Cards';
 import Submissions from './components/Submissions';
 import HelpText from './components/HelpText';
 
-let debug = true;
+let debug = false;
 
 
 let endpoint;
