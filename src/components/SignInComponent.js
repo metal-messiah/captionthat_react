@@ -60,7 +60,7 @@ class SignIn extends Component {
                            onChange={this.handleChange} required></input>
                     <button type="submit" className="submitAlias"> {buttonText}</button>
                     <div className="help">How to Play
-                        <hr>Make a game, or join an existing one. Create a temporary username and join the fun!
+                        <hr/>Make a game, or join an existing one. Create a temporary username and join the fun!
                             A random picture will be shown, and you will be given four random caption cards. You may
                             pick one card each round to best represent the mood of the picture. At the end of the round.
                             each player will get to vote for their favorite. The player with the most points after 10
