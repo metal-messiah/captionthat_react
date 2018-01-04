@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 const Timer = (props) => {
     let display = props.display ? "timer" : "hidden";
     return (
-        <div className={display}>{this.props.timer}</div>
+        <div className={display}>{props.timer}</div>
     )
 };
 
