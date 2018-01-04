@@ -16,7 +16,7 @@ html {
 
 /* optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
-    background: #FF0000;
+    background: #395e66;
 }
 
 body {
@@ -195,7 +195,7 @@ body, * {
 .scoreboard {
     height: 400px;
     width: 10000px;
-    max-width: 20%;
+    max-width: 30%;
     background: #0CA4A5;
     box-shadow: 5px 5px 15px 0px black;
     border-radius: 15px 0px 0px 15px;
@@ -220,7 +220,7 @@ body, * {
     font-size: x-large;
     width: 10000px;
     height: 100px;
-    max-width: 35%;
+    max-width: 25%;
     background-color: orange;
     text-align: center;
     line-height: 100px;
