@@ -3,15 +3,11 @@
  */
 import React, {Component} from 'react';
 
-class Timer extends Component {
-
-    render() {
-        let display = this.props.display ? "timer" : "hidden";
-
-        return (
-            <div className={display}>{this.props.timer}</div>
-        )
-    }
-}
+const Timer = (props) => {
+    let display = this.props.display ? "timer" : "hidden";
+    return (
+        <div className={display}>{this.props.timer}</div>
+    )
+};
 
 export default Timer;

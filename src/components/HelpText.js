@@ -3,17 +3,14 @@
  */
 import React, {Component} from 'react';
 
-class HelpText extends Component {
-
-    render() {
-        //console.log(this.props.users)
-        let displayClass = this.props.display ? "cardsTitle" : "hidden";
-        return (
-            <div className={displayClass}>
-                {this.props.html}
-            </div>
-        )
-    }
+const HelpText = (props) => {
+    //console.log(this.props.users)
+    let displayClass = props.display ? "cardsTitle" : "hidden";
+    return (
+        <div className={displayClass}>
+            {props.html}
+        </div>
+    )
 }
 
 export default HelpText;

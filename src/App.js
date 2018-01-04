@@ -80,7 +80,7 @@ class App extends Component {
                     users: data.users,
                     isRunning: data.isRunning,
                     currentCaptions: data.currentCaptions,
-                    currentGameroomUsers: data.users.map(user=>user.alias)
+                    currentGameroomUsers: data.users.map(user => user.alias)
                 })
             });
 
@@ -191,37 +191,22 @@ class App extends Component {
             if (this.state.showSignin) {
                 this.getExistingGames();
             }
-        }, 10000)
+        }, 10000);
         const {endpoint} = this.state;
 
     }
 
     render() {
-        let roundMsg;
-        if (this.state.round !== 0) {
-            roundMsg = "Round " + this.state.round;
-        }
-        else {
-            roundMsg = "Waiting For 1 More Player";
-        }
+        let roundMsg = this.state.round !== 0 ? "Round " + this.state.round : "Waiting For 1 More Player";
+
         console.log(this.state.alias)
         let aliasIndex = this.state.users.findIndex((user) => user.alias === this.state.alias);
-        let me;
-
-        if (aliasIndex != -1) {
-            me = this.state.users[aliasIndex];
-        }
-        else {
-            me = false;
-        }
-        console.log(me);
+        let me = aliasIndex != -1 ? this.state.users[aliasIndex] : false;
         let canSubmit = me ? me.canSubmit : false;
         let cards = me ? me.cards : [];
         let canVote = me ? me.canVote : false;
         let submissions = this.state.currentCaptions || [];
         let cardTitle = this.state.roundType == "answer" ? "Submit a Caption" : "Vote For Your Favorite";
-        //let currentCaption = me ? me.currentCaption : "";
-        //console.log(this.state.endpoint)
         return (
             <div className="App">
                 <SignIn currentGameroom={this.state.currentGameroom} handleGameroom={this.handleGameroom}

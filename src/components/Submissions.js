@@ -30,7 +30,6 @@ class Submissions extends Component {
     render() {
         let display = this.props.display ? "cards" : "hidden";
         return (
-
             <div className={display}>
                 {this.props.cards.map((card, i) => {
                     if (card.alias) {
@@ -41,7 +40,6 @@ class Submissions extends Component {
                     }
                 })}
             </div>
-
         )
     }
 }

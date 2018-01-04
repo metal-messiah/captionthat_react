@@ -27,7 +27,6 @@ class Cards extends Component {
     render() {
         let display = this.props.display ? "cards" : "hidden";
         return (
-
                 <div className={display}>
                     {this.props.cards.map((card, i) => {
                         return <div key={i} className="card" onClick={() => {
@@ -35,7 +34,6 @@ class Cards extends Component {
                         }}>{card}</div>
                     })}
                 </div>
-
         )
     }
 }
