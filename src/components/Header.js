@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 
 const Header = (props) => {
-    let displayRoomName = this.props.currentGameroom ? "gameroomName" : "hidden";
+    let displayRoomName = props.currentGameroom ? "gameroomName" : "hidden";
     return (
         <div>
             <div className="logo">CaptionThat</div>
