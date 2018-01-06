@@ -8,8 +8,7 @@ const Header = (props) => {
     return (
         <div>
             <div className="logo">CaptionThat</div>
-            <div className={displayRoomName}>{props.currentGameroom} - {props.currentGameroomUsers.length}
-                Players
+            <div className={displayRoomName}>{props.currentGameroom} - {props.currentGameroomUsers.length} Players
             </div>
         </div>
     )
